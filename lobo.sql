@@ -85,6 +85,8 @@ INSERT INTO roomBookings (client_name, client_email, phone_number, number_of_nig
 ('Halima Adan', 'halima.adan@yahoo.com', '0704567890', 1, 2723, '2025-06-03', 'canceled'),
 ('Thomas Mutua', 'thomas.mutua@outlook.com', '0738901234', 5, 2824, '2025-06-05', 'confirmed'),
 ('Nancy Achieng', 'nancy.achieng@gmail.com', '0791234567', 2, 2925, '2025-06-07', 'pending');
+--how to count confirmed bookings
+SELECT COUNT(booking_id) as confirmedBookings FROM roombookings WHERE booking_status ="confirmed";
 
 
 INSERT INTO spots (spot_id, capacity_range, price, label) VALUES
@@ -179,3 +181,9 @@ INSERT INTO reviews (service_type, comment, rating) VALUES
 ('spot', 'Service was slow, but the space was decent.', 3),
 ('room', 'Loved the design, very stylish!', 5),
 ('spot', 'Excellent for large groups, highly recommend.', 4);
+
+--if you want to see reviews that are rated above three
+SELECT * FROM `reviews` WHERE rating> 3;
+--reading room comments with rating above 3
+SELECT * FROM `reviews` WHERE rating> 3 AND service_type="room";
+
